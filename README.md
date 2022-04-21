@@ -101,6 +101,13 @@ Type "AT+RST" and press ENTER. This tells the ESP-01 module to restart. After st
 
 You can now send AT commands to your ESP-01 module and see the responses.
 
+# Reflashing ESP-01 Firmware
+
+The default firmware installed on ESP-01 modules implements a serial-to-WiFi bridge that can be controlled using AT commands.
+
+To install new firmware, the ESP-01 must be rebooted into a special mode that allows it to accept a new firmware image via its serial interface. This is done by pulling the GPIO0 pin LOW (0V) while the module is starting up. 
+
+sing a jumper wire, make a temporary connection between one of the GND pads on the shield, and the GPIO0 breakout just to the right of the prototyping area. Press RESET, and your module will now reboot into flashing mode.
 
 
 
