@@ -26,6 +26,8 @@ The shield provides a 3.3V power supply for the module, and logic level converte
 ![image](https://user-images.githubusercontent.com/19898602/164439879-f43ca021-fe2f-418a-8def-82d495142624.png)
 ![image](https://user-images.githubusercontent.com/19898602/164439967-457ccedb-4f3e-4c18-8451-17d14ad263d3.png)![image](https://user-images.githubusercontent.com/19898602/164440031-2ffad5e4-edb2-46fc-93df-4cbda71c4fc1.png)
 
+complete detail of the shield you can find here :- https://oshwlab.com/ctbully/wifi-shield-prototype
+
 If you plan to order this PCB you can consider [JLCPCB.com](https://jlcpcb.com/IAT) because
 
 I always prefer [JLCPCB.com](https://jlcpcb.com/IAT) for my PCB needs, [JLCPCB.com](https://jlcpcb.com/IAT) have best deals for their customers
@@ -56,5 +58,50 @@ Now no need to order components separately for you PCB and get free from stress 
 
 
 For more detials & offers please visit [JLCPCB.com](https://jlcpcb.com/IAT)
+
+
+# Hardware Setup
+
+1. Mount the shield on your Arduino.
+
+2. Mount your ESP-01 module on the shield using the header provided. The module must be oriented to align with the marking on the shield.
+
+3. Configure the serial jumpers near the top right of the shield to suit the pins your Arduino will use for communication with the ESP-01 module. The module ships with jumpers in a default position as shown above to connect the module's TX line to Arduino pin D2, and the module's RX line to Arduino pin D3. This means your Arduino will need to transmit on D3 (to the module's RX line) and receive on D2 from the module's TX line.
+
+4. Configure the reset jumper to connect module reset to Arduino reset. With the jumper in place (labelled "RST-LNK" on the PCB) the module's reset line is connected to the Arduino reset line, so when you press the Arduino RESET button your module will also be reset. This is a good way to ensure the module always starts in a known state when your Arduino resets. However, if you wish to isolate your module from Arduino reset you can remove the RST-LNK jumper. The jumper is fitted by default.
+
+
+# Software Setup
+
+The software required to use your ESP-01 depends on the firmware it has installed. The most common firmware shipped on the modules provides a WiFi bridge that can be controlled via "AT" serial commands from your Arduino. You can therefore use your Arduino as a "serial reflector" to pass commands and responses between your computer and the module, allowing you to type commands in the Arduino IDE serial console and see how the module replies.
+
+If your ESP-01 module has different firmware installed it may operate totally differently, and these instructions won't apply.
+
+If your ESP-01 module is running the default firmware, open the Arduino IDE, create a new sketch, and paste in the following code:
+
+```
+/**
+ * SerialReflector
+ */
+#include <SoftwareSerial.h>
+
+SoftwareSerial device(2,3); // Rx, Tx
+
+void setup() {
+  Serial.begin(115200); // Serial port for connection to host   
+  device.begin(115200); // Serial port for connection to serial device } void loop() {   if(device.available())   {     Serial.write(device.read());   }   if(Serial.available())   {     device.write(Serial.read());   } }
+  
+  ```
+  
+  This sketch opens a serial connection to your computer via USB at 115200bps, and also opens a software serial connection to the ESP-01 module via pins D2 and D3. Any data sent to one serial port is then retransmitted to the other port, allowing messages to pass transparently through your Arduino between your computer and the module.
+
+In the Arduino IDE, select "Tools -> Serial Monitor" to open the serial monitor, and check that the speed is set to 115200bps in the bottom right corner. Also make sure the line-ending dropdown says "Both NL & CR".
+
+Type "AT+RST" and press ENTER. This tells the ESP-01 module to restart. After startup the default firmware will output information about its version, then say "ready".
+
+You can now send AT commands to your ESP-01 module and see the responses.
+
+
+
 
 
