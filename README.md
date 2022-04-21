@@ -26,6 +26,10 @@ The shield provides a 3.3V power supply for the module, and logic level converte
 ![image](https://user-images.githubusercontent.com/19898602/164439879-f43ca021-fe2f-418a-8def-82d495142624.png)
 ![image](https://user-images.githubusercontent.com/19898602/164439967-457ccedb-4f3e-4c18-8451-17d14ad263d3.png)![image](https://user-images.githubusercontent.com/19898602/164440031-2ffad5e4-edb2-46fc-93df-4cbda71c4fc1.png)
 
+
+![image](https://user-images.githubusercontent.com/19898602/164441232-19380475-b650-4648-be80-0c3e40eeb981.png)
+
+
 complete detail of the shield you can find here :- https://oshwlab.com/ctbully/wifi-shield-prototype
 
 If you plan to order this PCB you can consider [JLCPCB.com](https://jlcpcb.com/IAT) because
