@@ -118,6 +118,26 @@ To install new firmware, the ESP-01 must be rebooted into a special mode that al
 
 sing a jumper wire, make a temporary connection between one of the GND pads on the shield, and the GPIO0 breakout just to the right of the prototyping area. Press RESET, and your module will now reboot into flashing mode.
 
+# Conclusion
 
+This board is a great solution for:
+
+> Who wants to have their own shield to record the ESP8266 ESP-01;
+
+> Who wants a board to develop automation systems for the internet of things;
+
+> Teachers or students who need a didactic board for learning and teaching IoT.
+
+> This circuit board is very simple and easy to assemble. Take advantage now and get 5 free samples to build automation projects with the internet of things.
+
+
+
+* Follow the step to get this shield board.
+
+1 - Download the circuit board Gerber file: https://oshwlab.com/ctbully/wifi-shield-prototype
+
+2 - Create an account using the link below: [JLCPCB.com](https://jlcpcb.com/IAT)
+
+3 - visit [JLCPCB.com](https://jlcpcb.com/IAT) Add the Gerber file and place the order. 
 
 
