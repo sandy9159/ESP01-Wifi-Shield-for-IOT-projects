@@ -20,6 +20,11 @@ The ESP-01 WiFi Module Shield provides a convenient connection between an Arduin
 
 The shield provides a 3.3V power supply for the module, and logic level converters so it can operate with either 3.3V or 5V Arduino boards.
 
+ * The Shield ESP-01 can be used for two purposes 
+
+> Teaching Internet of Things with ESP8266 ESP-01;
+
+> Develop automation solutions with IoT and ESP8266 ESP-01.
 
 # PCB Devlopment
 
